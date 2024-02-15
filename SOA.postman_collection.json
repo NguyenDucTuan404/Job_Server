@@ -1,0 +1,1270 @@
+{
+	"info": {
+		"_postman_id": "71911693-bf28-45e6-9ed0-d7d1ad2ca7fb",
+		"name": "SOA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28694913"
+	},
+	"item": [
+		{
+			"name": "Job",
+			"item": [
+				{
+					"name": "GetAll",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"key\" : \"back-end\",\r\n    \"idCompany\":[],\r\n    \"idOccupation\" : [],\r\n    \"localWorking\" : [\"Ha Noi\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/job/list?page=0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"job",
+								"list"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetOne",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDUwYWZmYjA3NDFmZGY1MGQ4MTNhNDMiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODMwMDk1MzcsImV4cCI6MTY4MzAxMzEzN30.8DausR3Glyk3cEanh6KlAUvzzMZtfqkCBWzPy1fvdNk",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/job/detail?id=64168368eb7ad99a3466e6b9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"job",
+								"detail"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "64168368eb7ad99a3466e6b9"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SortyByDate",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/job/list/sort-by-date",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"job",
+								"list",
+								"sort-by-date"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "searchJobByKey",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDAzNDQ5ZDc4ZGRhYzg2MWNlMGIxM2QiLCJyb2xlIjoidXNlciIsImlhdCI6MTY3OTY0Nzk4NSwiZXhwIjoxNjc5OTA3MTg1fQ.70-OOUtmKyOrtPspg6sMtA5gvVi3rl01onYcQI4QwIY",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/job/search-by-key?keyword=asp.net",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"job",
+								"search-by-key"
+							],
+							"query": [
+								{
+									"key": "keyword",
+									"value": "asp.net"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listJobOfCompany",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/job/list/company/6466fbeeadf18d8d00e9136b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"job",
+								"list",
+								"company",
+								"6466fbeeadf18d8d00e9136b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listJobOfCompanyAdmin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDQ1NDcwOGZmNzcyMTU0OWIxNWQ5YmIiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODIyNjUxMjQsImV4cCI6MTY4MjI2ODcyNH0.HArt6Ne0nPqjI6sIAOVUzS3IdRg5nNvtNG4r86Cbmyw",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Lập trình viên Back-end\",\r\n    \"description\":\"Tham gia thiết kế .NET, ...\",\r\n    \"requirement\":\".NET, MVC\",\r\n    \"hourWorking\":\"40hrs/week Monday to Friday\",\r\n    \"postingDate\":\"04-05-2023\",\r\n    \"deadline\":\"12-31-2024\",\r\n    \"salary\":\"15000000\",\r\n    \"locationWorking\":\"Hồ Chí Minh\",\r\n    \"idOccupation\":\"64100616fdd527b2f096944a\",\r\n    \"idcompany\":\"64454a52f6335cbf0bfa2abe\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/job/list/company/admin/646b82665d558907cd72414b?name=intern",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"job",
+								"list",
+								"company",
+								"admin",
+								"646b82665d558907cd72414b"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "intern"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllJobByModerator",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearber eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDZiODI2NTdhNTA3ODRiODhiNDRmZjAiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODU4NjA4NDMsImV4cCI6MTY4NTg2NDQ0M30.4q1dqC-_xvs3RtFrerPlH16ONpUp6KselfAeqyPsGrQ",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/job/list/all-moderator-job",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"job",
+								"list",
+								"all-moderator-job"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SearchJob",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"key\" : \"html\",\r\n    \"idCompany\":[],\r\n    \"idOccupation\" : [],\r\n    \"locationWorking\" : []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/job/list/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"job",
+								"list",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostCreate",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDQ1NDcwOGZmNzcyMTU0OWIxNWQ5YmIiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODIyNjUxMjQsImV4cCI6MTY4MjI2ODcyNH0.HArt6Ne0nPqjI6sIAOVUzS3IdRg5nNvtNG4r86Cbmyw",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Lập trình viên Back-end\",\r\n    \"description\":\"Tham gia thiết kế .NET, ...\",\r\n    \"requirement\":\".NET, MVC\",\r\n    \"hourWorking\":\"40hrs/week Monday to Friday\",\r\n    \"postingDate\":\"04-05-2023\",\r\n    \"deadline\":\"12-31-2024\",\r\n    \"salary\":\"15000000\",\r\n    \"locationWorking\":\"Hồ Chí Minh\",\r\n    \"idOccupation\":\"64100616fdd527b2f096944a\",\r\n    \"idcompany\":\"64454a52f6335cbf0bfa2abe\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/job/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"job",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PutOne",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDBmNDdjYjhlYWRkYjYzMmIzYTAwNzYiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2Nzk5ODc1NjQsImV4cCI6MTY3OTk5MTE2NH0.YX155-ece-8KxS4gexJHcW-7fHFMaED4Qetklm1qwpk",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \r\n    \"_id\": \"641b3297fb08df90a789330a\",\r\n    \"name\":\"Lap trinh vien Flutter\",\r\n    \"description\":\"join in to develope mobile application\",\r\n    \"requirement\":\"1 years experience\",\r\n    \"hourWorking\":\"40 hours/week\",\r\n    \"postingDate\":\"03-28-2023\",\r\n    \"deadline\":\"2-28-2023\",\r\n    \"salary\":\"15000000\",\r\n    \"locationWorking\":\"Ho Chi Minh\",\r\n    \"idOccupation\":\"63e10b141d3a066c8f791543\",\r\n    \"idcompany\":\"63e10717173cbae6b2487520\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/job/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"job",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteJob",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDBmNDdjYjhlYWRkYjYzMmIzYTAwNzYiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2Nzk5ODc1OTIsImV4cCI6MTY3OTk5MTE5Mn0.QGpboOwIB2B-a0SsWFj1fODHaa4MSVn8rLYbK5NKHAo",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_id\":\"6419d75908ff6d630028db2k\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/job/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"job",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "uploadImage",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image_file",
+									"contentType": "",
+									"type": "file",
+									"src": "/C:/Users/Admin/OneDrive/Pictures/screen/doi-hoa-tim-5-1590731334546464136746.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/job/upload/image",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"job",
+								"upload",
+								"image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetByCompanyId",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDBlMGJlMjU5MTllOGRiYTRmZjQ4NGIiLCJyb2xlIjoidXNlciIsImlhdCI6MTY4MTU0NzE3NSwiZXhwIjoxNjgxNTUwNzc1fQ.OMUO20rb6GiVY037L4fEasjKyliIz4bK_Z1jNrF_Vno",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/job/list/company/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"job",
+								"list",
+								"company",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "641003eafe045f194923dc8a"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "GetAllUser(test)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/auth/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"auth",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostLogin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearber eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDBmNDdjYjhlYWRkYjYzMmIzYTAwNzYiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODA3MDkyOTYsImV4cCI6MTY4MDcxMjg5Nn0.9LhhG4zJYpTE4eVsNpKZ9gY-yFzzrNd602BNMFrtfNM",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"username\": \"sieunhandienquang@gmail.com\",\r\n\"password\": \"THudat123@\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostLogout",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDAzNDQ5ZDc4ZGRhYzg2MWNlMGIxM2QiLCJyb2xlIjoidXNlciIsImlhdCI6MTY3OTc1OTM1NSwiZXhwIjoxNjgyMzUxMzU1fQ.w7ek1M527RMQf8RRSlbdOQqSeUFm3FW1ehN05GGDnIg",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/auth/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getOneUser",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDBmNDdjYjhlYWRkYjYzMmIzYTAwNzYiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODAwMTE2OTIsImV4cCI6MTY4MDAxNTI5Mn0.nabvJ4WLc2eOAxsgFJ3XUgfZaC_YuqjfHTJssNJI3qE",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/auth/info-user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"auth",
+								"info-user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ChangePassword",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDBmNDdjYjhlYWRkYjYzMmIzYTAwNzYiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODA0NDQ4NzAsImV4cCI6MTY4MDQ0ODQ3MH0.iC-_W1lpUjlV2TI8Z8NS8ambY15_QLnWY3QjNVBrHYY",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\":\"Phongtorai9\",\r\n    \"newPassword\":\"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/auth/change-password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"auth",
+								"change-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDQ1NDcwOGZmNzcyMTU0OWIxNWQ5YmIiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODIyNjIyNzQsImV4cCI6MTY4MjI2NTg3NH0.rdN1gPjkGIOEjF3MNyZyCc2dWAniQjuKsyrwak-Lg6o",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"bengokcutie123@gmail.com\",\r\n  \"password\": \"Bengokcutie123@gmail.com\",\r\n  \"name\": \"Be Ngok\",\r\n  \"phone\": \"0941374565\",\r\n  \"avatar\":\"nono\",\r\n  \"email\": \"bengokcutie123@gmail.com\",\r\n  \"role\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/company/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"company",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PatchUser",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDNkODc4NTEzZTMzZGM0ODg4M2Y3NGYiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODIxNDE3NDEsImV4cCI6MTY4MjE0NTM0MX0.sm28mN5GqM8IxaAOUyDtXgNpvURQJVSTn3WEWOMIAyY",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "tanngoc",
+									"type": "default"
+								},
+								{
+									"key": "email",
+									"value": "ngoc@gmail.com",
+									"type": "default"
+								},
+								{
+									"key": "phone",
+									"value": "0324385746",
+									"type": "default"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "/C:/Users/Admin/OneDrive/Pictures/Camera Roll/DykfjdHW0AErhlA.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/auth/edit-profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"auth",
+								"edit-profile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Company",
+			"item": [
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearber eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2RmYjc5Y2UyYjIwMDQ5NzdiYzFiMDciLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2NzYzNjk5MDEsImV4cCI6MTY3NjM3MDkwMX0.NdAXEPdsuaR3dFubCj1SveDPOYmJJu2IbUd7xaVIKZA",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/company/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"company",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postCompany",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDQ1NDcwOGZmNzcyMTU0OWIxNWQ5YmIiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODIyNjIyNzQsImV4cCI6MTY4MjI2NTg3NH0.rdN1gPjkGIOEjF3MNyZyCc2dWAniQjuKsyrwak-Lg6o",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"TMA Solutions Cops\",\r\n    \"totalEmployee\":2000,\r\n    \"type\":\"software, outsource\",\r\n    \"about\":\"startup company\",\r\n    \"phone\":\"0353748823xx\",\r\n    \"location\":\"Ho Chi Minh\",\r\n    \"isDelete\": \"false\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/company/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"company",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateCompany",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Third company\",\r\n    \"totalEmployee\":100,\r\n    \"type\":\"good\",\r\n    \"about\":\"me\",\r\n    \"phone\":\"033947586\",\r\n    \"location\":\"hihi\",\r\n    \"idUser\":\"63dfb79ce2b2004977bc1b07\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/company/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"company",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCompany",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDBmNDdjYjhlYWRkYjYzMmIzYTAwNzYiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODAwNjE0NjYsImV4cCI6MTY4MDA2NTA2Nn0.FEhewL1IpL6pKHYkXxPiQvsBzki8VZwzRW6v-6DU3c8",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"641003eafe045f194923dc8a\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/company/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"company",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPaging",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearber eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2RmYjc5Y2UyYjIwMDQ5NzdiYzFiMDciLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2NzYzNjk5MDEsImV4cCI6MTY3NjM3MDkwMX0.NdAXEPdsuaR3dFubCj1SveDPOYmJJu2IbUd7xaVIKZA",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/company/list?page=0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"company",
+								"list"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getOne",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearber eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDUwYWZmYjA3NDFmZGY1MGQ4MTNhNDMiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODMwMDk1MzcsImV4cCI6MTY4MzAxMzEzN30.8DausR3Glyk3cEanh6KlAUvzzMZtfqkCBWzPy1fvdNk",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/company/detail?id=642d893e2191af3368eb94cd",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"company",
+								"detail"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "642d893e2191af3368eb94cd"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Occupation",
+			"item": [
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDBmNDdjYjhlYWRkYjYzMmIzYTAwNzYiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODAwMjgxNzEsImV4cCI6MTY4MDAzMTc3MX0.QQTc2s_mkvjKoGyJuGfHu98iDHNROAtsCWevP-fakJg",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/occupation/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"occupation",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postOccupation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Design\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/occupation/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"occupation",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get one",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/occupation/detail/64100616fdd527b2f096944a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"occupation",
+								"detail",
+								"64100616fdd527b2f096944a"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Application",
+			"item": [
+				{
+					"name": "getAllApplication",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDBmNDdjYjhlYWRkYjYzMmIzYTAwNzYiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODAwMjgxNzEsImV4cCI6MTY4MDAzMTc3MX0.QQTc2s_mkvjKoGyJuGfHu98iDHNROAtsCWevP-fakJg",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8000/application/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"application",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByJobId",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDBmNDdjYjhlYWRkYjYzMmIzYTAwNzYiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODAwMjgxNzEsImV4cCI6MTY4MDAzMTc3MX0.QQTc2s_mkvjKoGyJuGfHu98iDHNROAtsCWevP-fakJg",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8000/application/get-by-jobid?jobid=64168513a8922acf0dfc7a8e?page=0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"application",
+								"get-by-jobid"
+							],
+							"query": [
+								{
+									"key": "jobid",
+									"value": "64168513a8922acf0dfc7a8e?page=0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByUserId",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDZjMzY1NzM3MGMwODM1OGM0MDE4MzMiLCJyb2xlIjoidXNlciIsImlhdCI6MTY4NTQ1NDQyNywiZXhwIjoxNjg1NDU4MDI3fQ.xMsk-DYW_yTlcldbRqK_5vdYdkJO8JsB1Ttwh11VT3Y",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/application/get-by-userid?page=0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"application",
+								"get-by-userid"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getApplicationByCompanyId",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDdjNTA2Zjk1OWM4NGEzOGE5MTBmN2MiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODU4NjkyNDYsImV4cCI6MTY4NTg3Mjg0Nn0.LsGdUBhtQk3nAs2Ez37v825AENWUbZ0m2Ma21uLCePI",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"TMA Solutions Cops\",\r\n    \"totalEmployee\":2000,\r\n    \"type\":\"software, outsource\",\r\n    \"about\":\"startup company\",\r\n    \"phone\":\"0353748823xx\",\r\n    \"location\":\"Ho Chi Minh\",\r\n    \"isDelete\": \"false\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/company/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"company",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createApplication",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearber eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDdjNTA2Zjk1OWM4NGEzOGE5MTBmN2MiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODU4NjkyNDYsImV4cCI6MTY4NTg3Mjg0Nn0.LsGdUBhtQk3nAs2Ez37v825AENWUbZ0m2Ma21uLCePI",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "idJob",
+									"value": "64619c761cef603ce819cd06",
+									"contentType": "",
+									"type": "default"
+								},
+								{
+									"key": "cv",
+									"type": "file",
+									"src": "/C:/Users/Admin/OneDrive/Desktop/linhtinh/thoi_gian_hoc.jpg"
+								},
+								{
+									"key": "submitDate",
+									"value": "04-05-2023",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/application/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"application",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Statistical",
+			"item": [
+				{
+					"name": "JobByOccupation",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/job/statistical/job-by-occupation",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"job",
+								"statistical",
+								"job-by-occupation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListNewJob",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/job/statistical/list-new-job",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"job",
+								"statistical",
+								"list-new-job"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ApplicationByOccupation",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/job/statistical/application-by-occupation",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"job",
+								"statistical",
+								"application-by-occupation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MostAplicationJob",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/job/statistical/most-application-job",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"job",
+								"statistical",
+								"most-application-job"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CustomStatistical",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/job/statistical/custom-statistical",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"job",
+								"statistical",
+								"custom-statistical"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "test-android-api",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/job/test-post-api",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"job",
+						"test-post-api"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
